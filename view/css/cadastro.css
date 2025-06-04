@@ -1,0 +1,134 @@
+body{
+    background-color: rgb(246, 246, 246);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container{
+    width: 55%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    border-radius: 30px;
+    background-color: rgb(246, 246, 246);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.imagem{
+    display: flex;
+}
+
+.img{
+    height: 75vh;
+    width: 45vh;
+    border-top-left-radius:30px;
+    border-bottom-left-radius: 30px ;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.conteudo h2{
+    color: black;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.conteudo form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.conteudo form input{
+    padding: 15px;
+    width: 60%;
+    border-radius: 15px;
+    border: none;
+    margin: 10px;
+    background-color: rgb(224, 224, 224);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn {
+    width: 40%;
+    padding: 12px;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    background-color: #086FC0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #314b92;
+    transform: scale(1.07);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .conteudo form input {
+        width: 80%;
+    }
+
+    .btn {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .imagem {
+        display: none;
+    }
+
+    .conteudo {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .conteudo h2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .conteudo form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteudo form input {
+        width: 70%;
+        max-width: 400px;
+    }
+
+    .btn {
+        width: 70%;
+        max-width: 300px;
+    }
+}
+
+
+
