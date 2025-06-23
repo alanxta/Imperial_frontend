@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+    <link rel="stylesheet" href="view/css/config.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+        
+
+                
+
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Configurações do Sistema</h1>
+
+
+                <div class="config-tabs">
+                    <div class="tab-header">
+                        <button class="tab-button active" onclick="openTab('empresa')">Empresa</button>
+                        <button class="tab-button" onclick="openTab('usuarios')">Usuários</button>
+                        <button class="tab-button" onclick="openTab('sistema')">Sistema</button>
+                        <button class="tab-button" onclick="openTab('backup')">Backup</button>
+                        <button class="tab-button" onclick="openTab('integracao')">Integrações</button>
+                    </div>
+
+
+                    <div class="tab-content">
+
+                        <div id="empresa" class="tab-pane active">
+                            <form class="config-form" onsubmit="saveCompanySettings(event)">
+                                <div class="form-section">
+                                    <h3>Dados da Empresa</h3>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="company-name">Nome da Empresa</label>
+                                            <input type="text" id="company-name" class="form-control" value="Imperial Supermercado" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="company-cnpj">CNPJ</label>
+                                            <input type="text" id="company-cnpj" class="form-control" value="12.345.678/0001-90" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="company-phone">Telefone</label>
+                                            <input type="text" id="company-phone" class="form-control" value="(11) 3456-7890" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="company-email">E-mail</label>
+                                            <input type="email" id="company-email" class="form-control" value="contato@imperialsupermercado.com.br" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-section">
+                                    <h3>Endereço</h3>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="company-cep">CEP</label>
+                                            <input type="text" id="company-cep" class="form-control" value="01234-567" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="company-street">Rua</label>
+                                            <input type="text" id="company-street" class="form-control" value="Av. Paulista" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="company-number">Número</label>
+                                            <input type="text" id="company-number" class="form-control" value="1000" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="company-complement">Complemento</label>
+                                            <input type="text" id="company-complement" class="form-control" value="Andar 10">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="company-neighborhood">Bairro</label>
+                                            <input type="text" id="company-neighborhood" class="form-control" value="Bela Vista" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="company-city">Cidade</label>
+                                            <input type="text" id="company-city" class="form-control" value="São Paulo" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="company-state">Estado</label>
+                                            <select id="company-state" class="form-control" required>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP" selected>São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-section">
+                                    <h3>Logotipo</h3>
+                                    
+                                    <div class="logo-preview">
+                                        <img src="assets/Imperial-Logo.png" alt="Logo atual">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="company-logo">Alterar Logotipo</label>
+                                        <input type="file" id="company-logo" class="form-control">
+                                        <small class="form-text">Formatos aceitos: JPG, PNG. Tamanho máximo: 2MB.</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div id="usuarios" class="tab-pane">
+                            <div class="tab-actions">
+                                <button class="btn btn-primary" onclick="showNewUserForm()">Novo Usuário</button>
+                                <div class="search-box">
+                                    <input type="text" placeholder="Buscar usuários..." class="form-control">
+                                    <button class="btn btn-secondary">Buscar</button>
+                                </div>
+                            </div>
+
+                            <h3>Usuários do Sistema</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <th>Cargo</th>
+                                            <th>Nível de Acesso</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Administrador</td>
+                                            <td>admin@imperialsupermercado.com.br</td>
+                                            <td>Gerente</td>
+                                            <td>Administrador</td>
+                                            <td><span class="status-completed">Ativo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="editUser('admin')">Editar</button>
+                                                <button class="btn btn-sm btn-danger" onclick="deactivateUser('admin')">Desativar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maria Silva</td>
+                                            <td>maria@imperialsupermercado.com.br</td>
+                                            <td>Caixa</td>
+                                            <td>Operador</td>
+                                            <td><span class="status-completed">Ativo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="editUser('maria')">Editar</button>
+                                                <button class="btn btn-sm btn-danger" onclick="deactivateUser('maria')">Desativar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>João Pereira</td>
+                                            <td>joao@imperialsupermercado.com.br</td>
+                                            <td>Estoquista</td>
+                                            <td>Operador</td>
+                                            <td><span class="status-completed">Ativo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="editUser('joao')">Editar</button>
+                                                <button class="btn btn-sm btn-danger" onclick="deactivateUser('joao')">Desativar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ana Souza</td>
+                                            <td>ana@imperialsupermercado.com.br</td>
+                                            <td>Financeiro</td>
+                                            <td>Gerente</td>
+                                            <td><span class="status-completed">Ativo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="editUser('ana')">Editar</button>
+                                                <button class="btn btn-sm btn-danger" onclick="deactivateUser('ana')">Desativar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carlos Oliveira</td>
+                                            <td>carlos@imperialsupermercado.com.br</td>
+                                            <td>Vendedor</td>
+                                            <td>Operador</td>
+                                            <td><span class="status-canceled">Inativo</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="editUser('carlos')">Editar</button>
+                                                <button class="btn btn-sm btn-success" onclick="activateUser('carlos')">Ativar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div id="sistema" class="tab-pane">
+                            <form class="config-form" onsubmit="saveSystemSettings(event)">
+                                <div class="form-section">
+                                    <h3>Configurações Gerais</h3>
+                                    
+                                    <div class="form-group">
+                                        <label for="system-language">Idioma do Sistema</label>
+                                        <select id="system-language" class="form-control">
+                                            <option value="pt-br" selected>Português (Brasil)</option>
+                                            <option value="en-us">English (US)</option>
+                                            <option value="es">Español</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="system-timezone">Fuso Horário</label>
+                                        <select id="system-timezone" class="form-control">
+                                            <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
+                                            <option value="America/Manaus">Manaus (GMT-4)</option>
+                                            <option value="America/Rio_Branco">Rio Branco (GMT-5)</option>
+                                            <option value="America/Noronha">Fernando de Noronha (GMT-2)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="system-date-format">Formato de Data</label>
+                                        <select id="system-date-format" class="form-control">
+                                            <option value="dd/mm/yyyy" selected>DD/MM/AAAA</option>
+                                            <option value="mm/dd/yyyy">MM/DD/AAAA</option>
+                                            <option value="yyyy-mm-dd">AAAA-MM-DD</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="system-currency">Moeda</label>
+                                        <select id="system-currency" class="form-control">
+                                            <option value="BRL" selected>Real (R$)</option>
+                                            <option value="USD">Dólar (US$)</option>
+                                            <option value="EUR">Euro (€)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-section">
+                                    <h3>Notificações</h3>
+                                    
+                                    <div class="form-group switch-group">
+                                        <label for="notify-low-stock">Notificar Estoque Baixo</label>
+                                        <label class="switch">
+                                            <input type="checkbox" id="notify-low-stock" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="low-stock-threshold">Limite de Estoque Baixo</label>
+                                        <input type="number" id="low-stock-threshold" class="form-control" value="10" min="1">
+                                    </div>
+                                    
+                                    <div class="form-group switch-group">
+                                        <label for="notify-sales">Notificar Novas Vendas</label>
+                                        <label class="switch">
+                                            <input type="checkbox" id="notify-sales" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-group switch-group">
+                                        <label for="notify-payments">Notificar Pagamentos</label>
+                                        <label class="switch">
+                                            <input type="checkbox" id="notify-payments" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-group switch-group">
+                                        <label for="notify-email">Enviar Notificações por E-mail</label>
+                                        <label class="switch">
+                                            <input type="checkbox" id="notify-email">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-section">
+                                    <h3>Aparência</h3>
+                                    
+                                    <div class="form-group">
+                                        <label for="system-theme">Tema</label>
+                                        <select id="system-theme" class="form-control">
+                                            <option value="light" selected>Claro</option>
+                                            <option value="dark">Escuro</option>
+                                            <option value="auto">Automático (Baseado no Sistema)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="system-font-size">Tamanho da Fonte</label>
+                                        <select id="system-font-size" class="form-control">
+                                            <option value="small">Pequeno</option>
+                                            <option value="medium" selected>Médio</option>
+                                            <option value="large">Grande</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                    <button type="reset" class="btn btn-secondary">Restaurar Padrões</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div id="backup" class="tab-pane">
+                            <div class="form-section">
+                                <h3>Backup Manual</h3>
+                                
+                                <p>Crie um backup completo do sistema para garantir a segurança dos seus dados.</p>
+                                
+                                <div class="backup-actions">
+                                    <button class="btn btn-primary" onclick="createBackup()">Criar Backup Agora</button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Backup Automático</h3>
+                                
+                                <div class="form-group switch-group">
+                                    <label for="auto-backup">Ativar Backup Automático</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="auto-backup" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="backup-frequency">Frequência</label>
+                                    <select id="backup-frequency" class="form-control">
+                                        <option value="daily">Diário</option>
+                                        <option value="weekly" selected>Semanal</option>
+                                        <option value="monthly">Mensal</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="backup-time">Horário</label>
+                                    <input type="time" id="backup-time" class="form-control" value="03:00">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="backup-retention">Retenção de Backups</label>
+                                    <select id="backup-retention" class="form-control">
+                                        <option value="7">7 dias</option>
+                                        <option value="30" selected>30 dias</option>
+                                        <option value="90">90 dias</option>
+                                        <option value="365">1 ano</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Backups Disponíveis</h3>
+                                
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Data</th>
+                                                <th>Tamanho</th>
+                                                <th>Tipo</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>backup_20250604_030000.zip</td>
+                                                <td>04/06/2025 03:00</td>
+                                                <td>42.5 MB</td>
+                                                <td>Automático</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary" onclick="restoreBackup('backup_20250604_030000.zip')">Restaurar</button>
+                                                    <button class="btn btn-sm btn-secondary" onclick="downloadBackup('backup_20250604_030000.zip')">Download</button>
+                                                    <button class="btn btn-sm btn-danger" onclick="deleteBackup('backup_20250604_030000.zip')">Excluir</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>backup_20250528_030000.zip</td>
+                                                <td>28/05/2025 03:00</td>
+                                                <td>41.8 MB</td>
+                                                <td>Automático</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary" onclick="restoreBackup('backup_20250528_030000.zip')">Restaurar</button>
+                                                    <button class="btn btn-sm btn-secondary" onclick="downloadBackup('backup_20250528_030000.zip')">Download</button>
+                                                    <button class="btn btn-sm btn-danger" onclick="deleteBackup('backup_20250528_030000.zip')">Excluir</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>backup_20250521_030000.zip</td>
+                                                <td>21/05/2025 03:00</td>
+                                                <td>40.2 MB</td>
+                                                <td>Automático</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary" onclick="restoreBackup('backup_20250521_030000.zip')">Restaurar</button>
+                                                    <button class="btn btn-sm btn-secondary" onclick="downloadBackup('backup_20250521_030000.zip')">Download</button>
+                                                    <button class="btn btn-sm btn-danger" onclick="deleteBackup('backup_20250521_030000.zip')">Excluir</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>backup_20250515_143022.zip</td>
+                                                <td>15/05/2025 14:30</td>
+                                                <td>39.7 MB</td>
+                                                <td>Manual</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary" onclick="restoreBackup('backup_20250515_143022.zip')">Restaurar</button>
+                                                    <button class="btn btn-sm btn-secondary" onclick="downloadBackup('backup_20250515_143022.zip')">Download</button>
+                                                    <button class="btn btn-sm btn-danger" onclick="deleteBackup('backup_20250515_143022.zip')">Excluir</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="integracao" class="tab-pane">
+                            <div class="form-section">
+                                <h3>Integrações Disponíveis</h3>
+                                
+                                <div class="integration-cards">
+                                    <div class="integration-card">
+                                        <div class="integration-logo">
+                                            <img src="assets/banner.png" alt="Mercado Pago">
+                                        </div>
+                                        <div class="integration-details">
+                                            <h4>Mercado Pago</h4>
+                                            <p>Integração para pagamentos online e presenciais.</p>
+                                            <div class="integration-status">
+                                                <span class="status-completed">Ativo</span>
+                                            </div>
+                                            <div class="integration-actions">
+                                                <button class="btn btn-primary" onclick="configureIntegration('mercadopago')">Configurar</button>
+                                                <button class="btn btn-danger" onclick="deactivateIntegration('mercadopago')">Desativar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="integration-card">
+                                        <div class="integration-logo">
+                                            <img src="assets/banner.png" alt="Correios">
+                                        </div>
+                                        <div class="integration-details">
+                                            <h4>Correios</h4>
+                                            <p>Integração para cálculo de frete e rastreamento de entregas.</p>
+                                            <div class="integration-status">
+                                                <span class="status-pending">Configuração Pendente</span>
+                                            </div>
+                                            <div class="integration-actions">
+                                                <button class="btn btn-primary" onclick="configureIntegration('correios')">Configurar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="integration-card">
+                                        <div class="integration-logo">
+                                            <img src="assets/banner.png" alt="NFe">
+                                        </div>
+                                        <div class="integration-details">
+                                            <h4>Nota Fiscal Eletrônica</h4>
+                                            <p>Integração para emissão de notas fiscais eletrônicas.</p>
+                                            <div class="integration-status">
+                                                <span class="status-canceled">Inativo</span>
+                                            </div>
+                                            <div class="integration-actions">
+                                                <button class="btn btn-primary" onclick="configureIntegration('nfe')">Configurar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="integration-card">
+                                        <div class="integration-logo">
+                                            <img src="assets/banner.png" alt="WhatsApp">
+                                        </div>
+                                        <div class="integration-details">
+                                            <h4>WhatsApp Business</h4>
+                                            <p>Integração para comunicação com clientes via WhatsApp.</p>
+                                            <div class="integration-status">
+                                                <span class="status-canceled">Inativo</span>
+                                            </div>
+                                            <div class="integration-actions">
+                                                <button class="btn btn-primary" onclick="configureIntegration('whatsapp')">Configurar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>API do Sistema</h3>
+                                
+                                <div class="form-group switch-group">
+                                    <label for="api-enabled">Ativar API</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="api-enabled" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="api-key">Chave da API</label>
+                                    <div class="input-with-button">
+                                        <input type="text" id="api-key" class="form-control" value="sk_test_51JKjF8JHGjk78LKjhGF45JHG67JHG45jhg67JHG" readonly>
+                                        <button class="btn btn-secondary" onclick="regenerateApiKey()">Regenerar</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="api-docs">Documentação da API</label>
+                                    <div class="input-with-button">
+                                        <input type="text" id="api-docs" class="form-control" value="https://api.imperialsupermercado.com.br/docs" readonly>
+                                        <button class="btn btn-secondary" onclick="openApiDocs()">Abrir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+
+        function openTab(tabId) {
+
+            document.querySelectorAll('.tab-pane').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+
+            document.getElementById(tabId).classList.add('active');
+            
+
+            document.querySelector(`.tab-button[onclick="openTab('${tabId}')"]`).classList.add('active');
+        }
+        
+        function saveCompanySettings(event) {
+            event.preventDefault();
+            
+
+            alert('Configurações da empresa salvas com sucesso!');
+        }
+        
+        function saveSystemSettings(event) {
+            event.preventDefault();
+            
+
+            alert('Configurações do sistema salvas com sucesso!');
+        }
+        
+        function showNewUserForm() {
+
+            alert('Formulário de novo usuário seria exibido aqui.');
+        }
+        
+        function editUser(userId) {
+
+            alert('Formulário de edição do usuário ' + userId + ' seria exibido aqui.');
+        }
+        
+        function deactivateUser(userId) {
+
+            if (confirm('Tem certeza que deseja desativar o usuário ' + userId + '?')) {
+                alert('Usuário ' + userId + ' desativado com sucesso!');
+            }
+        }
+        
+        function activateUser(userId) {
+
+            if (confirm('Tem certeza que deseja ativar o usuário ' + userId + '?')) {
+                alert('Usuário ' + userId + ' ativado com sucesso!');
+            }
+        }
+        
+        function createBackup() {
+
+            alert('Backup criado com sucesso!');
+        }
+        
+        function restoreBackup(backupName) {
+
+            if (confirm('Tem certeza que deseja restaurar o backup ' + backupName + '? Todos os dados atuais serão substituídos.')) {
+                alert('Backup ' + backupName + ' restaurado com sucesso!');
+            }
+        }
+        
+        function downloadBackup(backupName) {
+
+            alert('Download do backup ' + backupName + ' seria iniciado aqui.');
+        }
+        
+        function deleteBackup(backupName) {
+
+            if (confirm('Tem certeza que deseja excluir o backup ' + backupName + '?')) {
+                alert('Backup ' + backupName + ' excluído com sucesso!');
+            }
+        }
+        
+        function configureIntegration(integrationId) {
+
+            alert('Configuração da integração ' + integrationId + ' seria exibida aqui.');
+        }
+        
+        function deactivateIntegration(integrationId) {
+
+            if (confirm('Tem certeza que deseja desativar a integração ' + integrationId + '?')) {
+                alert('Integração ' + integrationId + ' desativada com sucesso!');
+            }
+        }
+        
+        function regenerateApiKey() {
+
+            if (confirm('Tem certeza que deseja regenerar a chave da API? Todas as integrações atuais precisarão ser atualizadas.')) {
+                document.getElementById('api-key').value = 'sk_test_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                alert('Chave da API regenerada com sucesso!');
+            }
+        }
+        
+        function openApiDocs() {
+
+            alert('Documentação da API seria aberta aqui.');
+        }
+    </script>
+
+    
+</body>
+
+</html>

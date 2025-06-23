@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+    <link rel="stylesheet" href="view/css/ajuda.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+<!-- Main do site -->
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Central de Ajuda</h1>
+
+                <!-- Pesquisa de Ajuda -->
+                <div class="help-search">
+                    <input type="text" placeholder="O que você está procurando?" class="search-input">
+                    <button class="btn btn-primary" onclick="searchHelp()">Buscar</button>
+                </div>
+
+                <!-- Categorias de Ajuda -->
+                <div class="help-categories">
+                    <div class="category-card" onclick="showCategory('getting-started')">
+                        <div class="category-icon">🚀</div>
+                        <h3>Primeiros Passos</h3>
+                        <p>Aprenda a usar o sistema e configure seu supermercado</p>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('products')">
+                        <div class="category-icon">📦</div>
+                        <h3>Produtos e Estoque</h3>
+                        <p>Gerenciamento de produtos, categorias e controle de estoque</p>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('sales')">
+                        <div class="category-icon">💰</div>
+                        <h3>Vendas e Caixa</h3>
+                        <p>Registrar vendas, devoluções e operações de caixa</p>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('financial')">
+                        <div class="category-icon">📊</div>
+                        <h3>Financeiro</h3>
+                        <p>Contas a pagar, receber e fluxo de caixa</p>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('reports')">
+                        <div class="category-icon">📈</div>
+                        <h3>Relatórios</h3>
+                        <p>Gerar e interpretar relatórios do sistema</p>
+                    </div>
+
+                    <div class="category-card" onclick="showCategory('settings')">
+                        <div class="category-icon">⚙️</div>
+                        <h3>Configurações</h3>
+                        <p>Personalizar o sistema e gerenciar usuários</p>
+                    </div>
+                </div>
+
+                <!-- Perguntas Frequentes -->
+                <div class="faq-section">
+                    <h2>Perguntas Frequentes</h2>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <h3>Como cadastrar um novo produto?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Para cadastrar um novo produto, siga estes passos:</p>
+                            <ol>
+                                <li>Acesse o menu "Cadastros" na barra lateral</li>
+                                <li>Clique em "Produtos"</li>
+                                <li>Clique no botão "Novo Produto"</li>
+                                <li>Preencha todos os campos obrigatórios (nome, código, preço, etc.)</li>
+                                <li>Selecione a categoria do produto</li>
+                                <li>Defina o estoque inicial, se necessário</li>
+                                <li>Clique em "Salvar"</li>
+                            </ol>
+                            <p>Pronto! Seu produto foi cadastrado com sucesso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <h3>Como registrar uma venda?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Para registrar uma nova venda, siga estes passos:</p>
+                            <ol>
+                                <li>Acesse o menu "Financeiro" na barra lateral</li>
+                                <li>Clique na aba "Vendas"</li>
+                                <li>Clique no botão "Nova Venda"</li>
+                                <li>Selecione o cliente (ou cadastre um novo)</li>
+                                <li>Adicione os produtos à venda, informando a quantidade</li>
+                                <li>Confira o valor total</li>
+                                <li>Selecione a forma de pagamento</li>
+                                <li>Clique em "Finalizar Venda"</li>
+                            </ol>
+                            <p>A venda será registrada e o estoque será atualizado automaticamente.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <h3>Como gerar relatórios de vendas?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Para gerar relatórios de vendas, siga estes passos:</p>
+                            <ol>
+                                <li>Acesse o menu "Financeiro" na barra lateral</li>
+                                <li>Clique na aba "Relatórios"</li>
+                                <li>Selecione "Relatório de Vendas"</li>
+                                <li>Defina o período desejado (dia, semana, mês, etc.)</li>
+                                <li>Selecione filtros adicionais, se necessário (por produto, categoria, etc.)</li>
+                                <li>Clique em "Gerar Relatório"</li>
+                            </ol>
+                            <p>O relatório será gerado e você poderá visualizá-lo, exportá-lo ou imprimi-lo.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <h3>Como adicionar um novo usuário ao sistema?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Para adicionar um novo usuário, siga estes passos:</p>
+                            <ol>
+                                <li>Acesse o menu "Configuração" na barra lateral</li>
+                                <li>Clique na aba "Usuários"</li>
+                                <li>Clique no botão "Novo Usuário"</li>
+                                <li>Preencha os dados do usuário (nome, e-mail, etc.)</li>
+                                <li>Defina o cargo e o nível de acesso</li>
+                                <li>Crie uma senha inicial</li>
+                                <li>Clique em "Salvar"</li>
+                            </ol>
+                            <p>O novo usuário receberá um e-mail com as instruções de acesso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <h3>Como fazer backup dos dados?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Para fazer backup dos dados do sistema, siga estes passos:</p>
+                            <ol>
+                                <li>Acesse o menu "Configuração" na barra lateral</li>
+                                <li>Clique na aba "Backup"</li>
+                                <li>Para backup manual, clique em "Criar Backup Agora"</li>
+                                <li>Para configurar backups automáticos:</li>
+                                <ul>
+                                    <li>Ative a opção "Backup Automático"</li>
+                                    <li>Defina a frequência (diária, semanal, mensal)</li>
+                                    <li>Defina o horário</li>
+                                    <li>Defina o período de retenção</li>
+                                </ul>
+                                <li>Clique em "Salvar Configurações"</li>
+                            </ol>
+                            <p>Os backups podem ser baixados ou restaurados a qualquer momento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vídeos de Tutoriais -->
+                <div class="tutorial-section">
+                    <h2>Vídeos Tutoriais</h2>
+
+                    <div class="tutorial-grid">
+                        <div class="tutorial-card" onclick="playTutorial('intro')">
+                            <div class="tutorial-thumbnail">
+                                <img src="assets/banner.png" alt="Introdução ao Sistema">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <h3>Introdução ao Sistema</h3>
+                            <p>Conheça as principais funcionalidades do Imperial Supermercado</p>
+                            <span class="tutorial-duration">5:30</span>
+                        </div>
+
+                        <div class="tutorial-card" onclick="playTutorial('products')">
+                            <div class="tutorial-thumbnail">
+                                <img src="assets/banner.png" alt="Gerenciamento de Produtos">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <h3>Gerenciamento de Produtos</h3>
+                            <p>Aprenda a cadastrar, editar e gerenciar produtos</p>
+                            <span class="tutorial-duration">8:45</span>
+                        </div>
+
+                        <div class="tutorial-card" onclick="playTutorial('sales')">
+                            <div class="tutorial-thumbnail">
+                                <img src="assets/banner.png" alt="Registrando Vendas">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <h3>Registrando Vendas</h3>
+                            <p>Como registrar vendas e devoluções no sistema</p>
+                            <span class="tutorial-duration">7:20</span>
+                        </div>
+
+                        <div class="tutorial-card" onclick="playTutorial('financial')">
+                            <div class="tutorial-thumbnail">
+                                <img src="assets/banner.png" alt="Gestão Financeira">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <h3>Gestão Financeira</h3>
+                            <p>Controle financeiro completo para seu supermercado</p>
+                            <span class="tutorial-duration">10:15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suporte -->
+                <div class="support-section">
+                    <h2>Precisa de Mais Ajuda?</h2>
+
+                    <div class="support-options">
+                        <div class="support-card" onclick="openChat()">
+                            <div class="support-icon">💬</div>
+                            <h3>Chat ao Vivo</h3>
+                            <p>Converse com um de nossos atendentes em tempo real</p>
+                            <button class="btn btn-primary">Iniciar Chat</button>
+                        </div>
+
+                        <div class="support-card" onclick="sendEmail()">
+                            <div class="support-icon">✉️</div>
+                            <h3>E-mail</h3>
+                            <p>Envie sua dúvida e responderemos em até 24 horas</p>
+                            <button class="btn btn-primary">Enviar E-mail</button>
+                        </div>
+
+                        <div class="support-card" onclick="showPhone()">
+                            <div class="support-icon">📞</div>
+                            <h3>Telefone</h3>
+                            <p>Ligue para nossa central de atendimento</p>
+                            <button class="btn btn-primary">Ver Telefone</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- javascript -->
+    <script src="view/js/script.js"></script>
+    <script>
+  
+
+        function searchHelp() {
+            const searchTerm = document.querySelector('.search-input').value.trim();
+            
+            if (searchTerm === '') {
+                alert('Por favor, digite o que você está procurando.');
+                return;
+            }
+
+            alert('Resultados da busca para: ' + searchTerm + ' seriam exibidos aqui.');
+        }
+
+        //simulação de exibição de categoria
+        function showCategory(categoryId) {
+
+            alert('Conteúdo da categoria ' + categoryId + ' seria exibido aqui.');
+        }
+        
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+        
+        function playTutorial(tutorialId) {
+            alert('O vídeo tutorial ' + tutorialId + ' seria reproduzido aqui.');
+        }
+        
+        function openChat() {
+            alert('Chat ao vivo seria aberto aqui.');
+        }
+        
+        function sendEmail() {
+            alert('Formulário de e-mail seria exibido aqui.');
+        }
+        
+        function showPhone() {
+            alert('Telefone de contato: (11) 3456-7890');
+        }
+    </script>
+        
+</body>
+
+</html>

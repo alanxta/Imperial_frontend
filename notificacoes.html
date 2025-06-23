@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+    <link rel="stylesheet" href="view/css/notificacoes.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Notificações</h1>
+
+
+                <div class="notification-filters">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterNotifications('all')">Todas</button>
+                        <button class="filter-btn" onclick="filterNotifications('unread')">Não Lidas</button>
+                        <button class="filter-btn" onclick="filterNotifications('system')">Sistema</button>
+                        <button class="filter-btn" onclick="filterNotifications('stock')">Estoque</button>
+                        <button class="filter-btn" onclick="filterNotifications('sales')">Vendas</button>
+                        <button class="filter-btn" onclick="filterNotifications('financial')">Financeiro</button>
+                    </div>
+                    <div class="notification-actions">
+                        <button class="btn btn-secondary" onclick="markAllAsRead()">Marcar Todas como Lidas</button>
+                        <button class="btn btn-danger" onclick="clearAllNotifications()">Limpar Todas</button>
+                    </div>
+                </div>
+
+
+                <div class="notification-list">
+
+                    <div class="notification-item unread stock" data-type="stock">
+                        <div class="notification-icon stock">
+                            <img src="assets/catalogo.png" alt="Estoque">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Alerta de Estoque Baixo</h3>
+                                <span class="notification-time">Hoje, 09:45</span>
+                            </div>
+                            <p>5 produtos estão com estoque abaixo do mínimo. Verifique o relatório de estoque para mais detalhes.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewStockReport()">Ver Relatório</button>
+                                <button class="btn btn-sm btn-secondary" onclick="markAsRead(this)">Marcar como Lida</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item unread sales" data-type="sales">
+                        <div class="notification-icon sales">
+                            <img src="assets/financeiro.png" alt="Vendas">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Nova Venda Realizada</h3>
+                                <span class="notification-time">Hoje, 08:30</span>
+                            </div>
+                            <p>Venda #12345 no valor de R$ 157,80 foi realizada com sucesso por Maria Silva.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewSaleDetails('12345')">Ver Detalhes</button>
+                                <button class="btn btn-sm btn-secondary" onclick="markAsRead(this)">Marcar como Lida</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="notification-item unread financial" data-type="financial">
+                        <div class="notification-icon financial">
+                            <img src="assets/financeiro.png" alt="Financeiro">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Conta a Pagar Vencendo</h3>
+                                <span class="notification-time">Hoje, 07:15</span>
+                            </div>
+                            <p>A conta a pagar CP-004 para Bebidas Refrescantes no valor de R$ 6.120,00 vence hoje.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewPayableDetails('CP-004')">Ver Detalhes</button>
+                                <button class="btn btn-sm btn-secondary" onclick="markAsRead(this)">Marcar como Lida</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item system" data-type="system">
+                        <div class="notification-icon system">
+                            <img src="assets/configuração.png" alt="Sistema">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Backup Automático Concluído</h3>
+                                <span class="notification-time">Ontem, 03:00</span>
+                            </div>
+                            <p>O backup automático semanal foi concluído com sucesso. Tamanho do backup: 42.5 MB.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewBackupDetails('backup_20250604_030000.zip')">Ver Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item stock" data-type="stock">
+                        <div class="notification-icon stock">
+                            <img src="assets/catalogo.png" alt="Estoque">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Produto Adicionado ao Catálogo</h3>
+                                <span class="notification-time">Ontem, 14:20</span>
+                            </div>
+                            <p>O produto "Arroz Integral Premium 1kg" foi adicionado ao catálogo com sucesso.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewProductDetails('P-1234')">Ver Produto</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item sales" data-type="sales">
+                        <div class="notification-icon sales">
+                            <img src="assets/financeiro.png" alt="Vendas">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Relatório de Vendas Diário</h3>
+                                <span class="notification-time">Ontem, 23:00</span>
+                            </div>
+                            <p>O relatório de vendas do dia 03/06/2025 está disponível. Total de vendas: R$ 4.350,00.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewSalesReport('20250603')">Ver Relatório</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item system" data-type="system">
+                        <div class="notification-icon system">
+                            <img src="assets/configuração.png" alt="Sistema">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Atualização do Sistema</h3>
+                                <span class="notification-time">02/06/2025, 08:00</span>
+                            </div>
+                            <p>Uma nova atualização do sistema está disponível (v2.5.3). Clique para instalar.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="updateSystem('v2.5.3')">Instalar Atualização</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-item financial" data-type="financial">
+                        <div class="notification-icon financial">
+                            <img src="assets/financeiro.png" alt="Financeiro">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <h3>Pagamento Recebido</h3>
+                                <span class="notification-time">01/06/2025, 15:30</span>
+                            </div>
+                            <p>Pagamento da conta a receber CR-005 no valor de R$ 3.180,00 foi recebido com sucesso.</p>
+                            <div class="notification-actions">
+                                <button class="btn btn-sm btn-primary" onclick="viewReceivableDetails('CR-005')">Ver Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="page-info">Página 1 de 3</span>
+                    <button class="btn btn-secondary">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+ 
+
+    <script src="js/script.js"></script>
+    <script>
+ 
+        function filterNotifications(type) {
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.filter-btn[onclick="filterNotifications('${type}')"]`).classList.add('active');
+            
+
+            const items = document.querySelectorAll('.notification-item');
+            
+            if (type === 'all') {
+                items.forEach(item => {
+                    item.style.display = 'flex';
+                });
+            } else if (type === 'unread') {
+                items.forEach(item => {
+                    if (item.classList.contains('unread')) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            } else {
+                items.forEach(item => {
+                    if (item.getAttribute('data-type') === type) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        }
+        
+        function markAsRead(button) {
+            const notificationItem = button.closest('.notification-item');
+            notificationItem.classList.remove('unread');
+
+            const actionsDiv = button.parentElement;
+            actionsDiv.removeChild(button);
+            
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'btn btn-sm btn-danger';
+            deleteButton.textContent = 'Excluir';
+            deleteButton.onclick = function() {
+                deleteNotification(this);
+            };
+            
+            actionsDiv.appendChild(deleteButton);
+
+            updateNotificationCount();
+
+            showToast('Notificação marcada como lida');
+        }
+        
+        function deleteNotification(button) {
+            const notificationItem = button.closest('.notification-item');
+
+            notificationItem.style.opacity = '0';
+            
+            setTimeout(() => {
+                notificationItem.remove();
+
+                updateNotificationCount();
+
+                showToast('Notificação excluída');
+            }, 300);
+        }
+        
+        function markAllAsRead() {
+            const unreadItems = document.querySelectorAll('.notification-item.unread');
+            
+            if (unreadItems.length === 0) {
+                showToast('Não há notificações não lidas');
+                return;
+            }
+            
+            unreadItems.forEach(item => {
+                item.classList.remove('unread');
+
+                const markAsReadBtn = item.querySelector('button[onclick^="markAsRead"]');
+                if (markAsReadBtn) {
+                    const actionsDiv = markAsReadBtn.parentElement;
+                    actionsDiv.removeChild(markAsReadBtn);
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'btn btn-sm btn-danger';
+                    deleteButton.textContent = 'Excluir';
+                    deleteButton.onclick = function() {
+                        deleteNotification(this);
+                    };
+                    
+                    actionsDiv.appendChild(deleteButton);
+                }
+            });
+
+            updateNotificationCount();
+
+            showToast('Todas as notificações foram marcadas como lidas');
+        }
+        
+        function clearAllNotifications() {
+            const items = document.querySelectorAll('.notification-item');
+            
+            if (items.length === 0) {
+                showToast('Não há notificações para limpar');
+                return;
+            }
+            
+            if (confirm('Tem certeza que deseja limpar todas as notificações?')) {
+                items.forEach(item => {
+
+                    item.style.opacity = '0';
+                });
+                
+                setTimeout(() => {
+                    items.forEach(item => {
+                        item.remove();
+                    });
+
+                    updateNotificationCount();
+
+                    showToast('Todas as notificações foram limpas');
+                }, 300);
+            }
+        }
+        
+        function updateNotificationCount() {
+            const unreadCount = document.querySelectorAll('.notification-item.unread').length;
+            const badge = document.querySelector('.notification-badge');
+            
+            if (unreadCount > 0) {
+                badge.textContent = unreadCount;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        
+        function showToast(message) {
+
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+ 
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        function viewStockReport() {
+
+            alert('Relatório de estoque seria exibido aqui.');
+        }
+        
+        function viewSaleDetails(saleId) {
+
+            alert('Detalhes da venda ' + saleId + ' seriam exibidos aqui.');
+        }
+        
+        function viewPayableDetails(payableId) {
+
+            alert('Detalhes da conta a pagar ' + payableId + ' seriam exibidos aqui.');
+        }
+        
+        function viewBackupDetails(backupName) {
+
+            alert('Detalhes do backup ' + backupName + ' seriam exibidos aqui.');
+        }
+        
+        function viewProductDetails(productId) {
+
+            alert('Detalhes do produto ' + productId + ' seriam exibidos aqui.');
+        }
+        
+        function viewSalesReport(date) {
+
+            alert('Relatório de vendas do dia ' + date + ' seria exibido aqui.');
+        }
+        
+        function updateSystem(version) {
+
+            if (confirm('Tem certeza que deseja instalar a atualização ' + version + '?')) {
+                alert('Atualização ' + version + ' instalada com sucesso!');
+            }
+        }
+        
+        function viewReceivableDetails(receivableId) {
+
+            alert('Detalhes da conta a receber ' + receivableId + ' seriam exibidos aqui.');
+        }
+    </script>
+
+</body>
+
+</html>

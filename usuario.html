@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+    <link rel="stylesheet" href="view/css/usuario.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Perfil do Usuário</h1>
+
+                <div class="user-profile">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="assets/user-avatar.png" alt="Avatar do Usuário">
+                            <button class="change-avatar-btn" onclick="changeAvatar()">
+                                <img src="assets/edit.png" alt="Editar">
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h2>Administrador</h2>
+                            <p class="user-role">Gerente</p>
+                            <p class="user-email">admin@imperialsupermercado.com.br</p>
+                            <p class="user-since">Membro desde: 01/01/2025</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <div class="tab-header">
+                            <button class="tab-button active" onclick="openTab('info')">Informações Pessoais</button>
+                            <button class="tab-button" onclick="openTab('security')">Segurança</button>
+                            <button class="tab-button" onclick="openTab('preferences')">Preferências</button>
+                            <button class="tab-button" onclick="openTab('activity')">Atividade Recente</button>
+                        </div>
+
+                        <div class="tab-content">
+
+                            <div id="info" class="tab-pane active">
+                                <form class="profile-form" onsubmit="savePersonalInfo(event)">
+                                    <div class="form-section">
+                                        <h3>Dados Pessoais</h3>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-name">Nome Completo</label>
+                                                <input type="text" id="user-name" class="form-control" value="Administrador do Sistema" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-cpf">CPF</label>
+                                                <input type="text" id="user-cpf" class="form-control" value="123.456.789-00" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-birth">Data de Nascimento</label>
+                                                <input type="date" id="user-birth" class="form-control" value="1990-01-01" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-gender">Gênero</label>
+                                                <select id="user-gender" class="form-control">
+                                                    <option value="male" selected>Masculino</option>
+                                                    <option value="female">Feminino</option>
+                                                    <option value="other">Outro</option>
+                                                    <option value="not-specified">Prefiro não informar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-section">
+                                        <h3>Contato</h3>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-email">E-mail</label>
+                                                <input type="email" id="user-email" class="form-control" value="admin@imperialsupermercado.com.br" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-phone">Telefone</label>
+                                                <input type="text" id="user-phone" class="form-control" value="(11) 98765-4321" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-section">
+                                        <h3>Endereço</h3>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-cep">CEP</label>
+                                                <input type="text" id="user-cep" class="form-control" value="01234-567" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-street">Rua</label>
+                                                <input type="text" id="user-street" class="form-control" value="Av. Paulista" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-number">Número</label>
+                                                <input type="text" id="user-number" class="form-control" value="1000" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-complement">Complemento</label>
+                                                <input type="text" id="user-complement" class="form-control" value="Apto 123">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-neighborhood">Bairro</label>
+                                                <input type="text" id="user-neighborhood" class="form-control" value="Bela Vista" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-city">Cidade</label>
+                                                <input type="text" id="user-city" class="form-control" value="São Paulo" required>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-state">Estado</label>
+                                                <select id="user-state" class="form-control" required>
+                                                    <option value="AC">Acre</option>
+                                                    <option value="AL">Alagoas</option>
+                                                    <option value="AP">Amapá</option>
+                                                    <option value="AM">Amazonas</option>
+                                                    <option value="BA">Bahia</option>
+                                                    <option value="CE">Ceará</option>
+                                                    <option value="DF">Distrito Federal</option>
+                                                    <option value="ES">Espírito Santo</option>
+                                                    <option value="GO">Goiás</option>
+                                                    <option value="MA">Maranhão</option>
+                                                    <option value="MT">Mato Grosso</option>
+                                                    <option value="MS">Mato Grosso do Sul</option>
+                                                    <option value="MG">Minas Gerais</option>
+                                                    <option value="PA">Pará</option>
+                                                    <option value="PB">Paraíba</option>
+                                                    <option value="PR">Paraná</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="PI">Piauí</option>
+                                                    <option value="RJ">Rio de Janeiro</option>
+                                                    <option value="RN">Rio Grande do Norte</option>
+                                                    <option value="RS">Rio Grande do Sul</option>
+                                                    <option value="RO">Rondônia</option>
+                                                    <option value="RR">Roraima</option>
+                                                    <option value="SC">Santa Catarina</option>
+                                                    <option value="SP" selected>São Paulo</option>
+                                                    <option value="SE">Sergipe</option>
+                                                    <option value="TO">Tocantins</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="security" class="tab-pane">
+                                <form class="profile-form" onsubmit="changePassword(event)">
+                                    <div class="form-section">
+                                        <h3>Alterar Senha</h3>
+                                        
+                                        <div class="form-group">
+                                            <label for="current-password">Senha Atual</label>
+                                            <input type="password" id="current-password" class="form-control" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="new-password">Nova Senha</label>
+                                            <input type="password" id="new-password" class="form-control" required>
+                                            <small class="form-text">A senha deve ter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e símbolos.</small>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="confirm-password">Confirmar Nova Senha</label>
+                                            <input type="password" id="confirm-password" class="form-control" required>
+                                        </div>
+                                        
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <div class="form-section">
+                                    <h3>Autenticação de Dois Fatores</h3>
+                                    
+                                    <div class="two-factor-status">
+                                        <p>Status: <span class="status-canceled">Desativado</span></p>
+                                        <button class="btn btn-primary" onclick="setupTwoFactor()">Ativar Autenticação de Dois Fatores</button>
+                                    </div>
+                                    
+                                    <p class="info-text">A autenticação de dois fatores adiciona uma camada extra de segurança à sua conta, exigindo um código além da senha ao fazer login.</p>
+                                </div>
+                                
+                                <div class="form-section">
+                                    <h3>Sessões Ativas</h3>
+                                    
+                                    <div class="table-container">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Dispositivo</th>
+                                                    <th>Localização</th>
+                                                    <th>Último Acesso</th>
+                                                    <th>Ações</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Windows 11 - Chrome</td>
+                                                    <td>São Paulo, Brasil</td>
+                                                    <td>Agora</td>
+                                                    <td><span class="current-session">Sessão Atual</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>iPhone 15 - Safari</td>
+                                                    <td>São Paulo, Brasil</td>
+                                                    <td>Ontem, 18:30</td>
+                                                    <td><button class="btn btn-sm btn-danger" onclick="terminateSession('session-1')">Encerrar</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>MacBook Pro - Safari</td>
+                                                    <td>São Paulo, Brasil</td>
+                                                    <td>02/06/2025, 09:15</td>
+                                                    <td><button class="btn btn-sm btn-danger" onclick="terminateSession('session-2')">Encerrar</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button class="btn btn-danger" onclick="terminateAllSessions()">Encerrar Todas as Outras Sessões</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="preferences" class="tab-pane">
+                                <form class="profile-form" onsubmit="savePreferences(event)">
+                                    <div class="form-section">
+                                        <h3>Aparência</h3>
+                                        
+                                        <div class="form-group">
+                                            <label for="user-theme">Tema</label>
+                                            <select id="user-theme" class="form-control">
+                                                <option value="light" selected>Claro</option>
+                                                <option value="dark">Escuro</option>
+                                                <option value="auto">Automático (Baseado no Sistema)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="user-font-size">Tamanho da Fonte</label>
+                                            <select id="user-font-size" class="form-control">
+                                                <option value="small">Pequeno</option>
+                                                <option value="medium" selected>Médio</option>
+                                                <option value="large">Grande</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-section">
+                                        <h3>Notificações</h3>
+                                        
+                                        <div class="form-group switch-group">
+                                            <label for="notify-email">Receber Notificações por E-mail</label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="notify-email" checked>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-group switch-group">
+                                            <label for="notify-system">Receber Notificações do Sistema</label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="notify-system" checked>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-group switch-group">
+                                            <label for="notify-sales">Receber Notificações de Vendas</label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="notify-sales" checked>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-group switch-group">
+                                            <label for="notify-stock">Receber Notificações de Estoque</label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="notify-stock" checked>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-group switch-group">
+                                            <label for="notify-financial">Receber Notificações Financeiras</label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="notify-financial" checked>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-section">
+                                        <h3>Dashboard</h3>
+                                        
+                                        <div class="form-group">
+                                            <label for="dashboard-view">Visualização Padrão</label>
+                                            <select id="dashboard-view" class="form-control">
+                                                <option value="summary" selected>Resumo</option>
+                                                <option value="sales">Vendas</option>
+                                                <option value="stock">Estoque</option>
+                                                <option value="financial">Financeiro</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="dashboard-period">Período Padrão</label>
+                                            <select id="dashboard-period" class="form-control">
+                                                <option value="day">Hoje</option>
+                                                <option value="week" selected>Esta Semana</option>
+                                                <option value="month">Este Mês</option>
+                                                <option value="year">Este Ano</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary">Salvar Preferências</button>
+                                        <button type="reset" class="btn btn-secondary">Restaurar Padrões</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="activity" class="tab-pane">
+                                <div class="activity-filters">
+                                    <div class="filter-group">
+                                        <label for="activity-type">Tipo:</label>
+                                        <select id="activity-type" class="form-control">
+                                            <option value="all" selected>Todos</option>
+                                            <option value="login">Login</option>
+                                            <option value="product">Produtos</option>
+                                            <option value="sale">Vendas</option>
+                                            <option value="financial">Financeiro</option>
+                                            <option value="system">Sistema</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="filter-group">
+                                        <label for="activity-period">Período:</label>
+                                        <select id="activity-period" class="form-control">
+                                            <option value="day">Hoje</option>
+                                            <option value="week" selected>Esta Semana</option>
+                                            <option value="month">Este Mês</option>
+                                            <option value="all">Todo o Histórico</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon login">
+                                            <img src="assets/user.png" alt="Login">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Login no Sistema</h4>
+                                                <span class="timeline-time">Hoje, 08:00</span>
+                                            </div>
+                                            <p>Login realizado com sucesso a partir de São Paulo, Brasil (Windows 11 - Chrome).</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon product">
+                                            <img src="assets/catalogo.png" alt="Produto">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Produto Adicionado</h4>
+                                                <span class="timeline-time">Ontem, 14:20</span>
+                                            </div>
+                                            <p>Adicionou o produto "Arroz Integral Premium 1kg" ao catálogo.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon sale">
+                                            <img src="assets/financeiro.png" alt="Venda">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Venda Registrada</h4>
+                                                <span class="timeline-time">Ontem, 11:35</span>
+                                            </div>
+                                            <p>Registrou a venda #12340 no valor de R$ 87,50.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon login">
+                                            <img src="assets/user.png" alt="Login">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Login no Sistema</h4>
+                                                <span class="timeline-time">Ontem, 08:15</span>
+                                            </div>
+                                            <p>Login realizado com sucesso a partir de São Paulo, Brasil (Windows 11 - Chrome).</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon financial">
+                                            <img src="assets/financeiro.png" alt="Financeiro">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Pagamento Registrado</h4>
+                                                <span class="timeline-time">03/06/2025, 16:40</span>
+                                            </div>
+                                            <p>Registrou o pagamento da conta CP-005 no valor de R$ 2.180,00.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon system">
+                                            <img src="assets/configuração.png" alt="Sistema">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Configuração Alterada</h4>
+                                                <span class="timeline-time">03/06/2025, 10:20</span>
+                                            </div>
+                                            <p>Alterou as configurações de notificações do sistema.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon login">
+                                            <img src="assets/user.png" alt="Login">
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-header">
+                                                <h4>Login no Sistema</h4>
+                                                <span class="timeline-time">03/06/2025, 08:05</span>
+                                            </div>
+                                            <p>Login realizado com sucesso a partir de São Paulo, Brasil (Windows 11 - Chrome).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="load-more">
+                                    <button class="btn btn-secondary" onclick="loadMoreActivity()">Carregar Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+
+        function openTab(tabId) {
+
+            document.querySelectorAll('.tab-pane').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            
+
+            document.querySelector(`.tab-button[onclick="openTab('${tabId}')"]`).classList.add('active');
+        }
+        
+        function changeAvatar() {
+
+            alert('Funcionalidade de alteração de avatar seria exibida aqui.');
+        }
+        
+        function savePersonalInfo(event) {
+            event.preventDefault();
+
+            alert('Informações pessoais salvas com sucesso!');
+        }
+        
+        function changePassword(event) {
+            event.preventDefault();
+
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (newPassword !== confirmPassword) {
+                alert('As senhas não coincidem. Por favor, tente novamente.');
+                return;
+            }
+            
+
+            alert('Senha alterada com sucesso!');
+
+            document.getElementById('current-password').value = '';
+            document.getElementById('new-password').value = '';
+            document.getElementById('confirm-password').value = '';
+        }
+        
+        function setupTwoFactor() {
+
+            alert('Configuração de autenticação de dois fatores seria exibida aqui.');
+        }
+        
+        function terminateSession(sessionId) {
+
+            if (confirm('Tem certeza que deseja encerrar esta sessão?')) {
+                alert('Sessão encerrada com sucesso!');
+            }
+        }
+        
+        function terminateAllSessions() {
+
+            if (confirm('Tem certeza que deseja encerrar todas as outras sessões?')) {
+                alert('Todas as outras sessões foram encerradas com sucesso!');
+            }
+        }
+        
+        function savePreferences(event) {
+            event.preventDefault();
+
+            alert('Preferências salvas com sucesso!');
+        }
+        
+        function loadMoreActivity() {
+
+            alert('Mais atividades seriam carregadas aqui.');
+        }
+    </script>
+                
+</body>
+
+</html>

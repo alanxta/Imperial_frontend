@@ -1,0 +1,79 @@
+       .cadastro-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        .cadastro-tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s;
+        }
+        
+        .cadastro-tab:hover {
+            color: #1a237e;
+        }
+        
+        .cadastro-tab.active {
+            color: #1a237e;
+            border-bottom-color: #1a237e;
+        }
+        
+        .cadastro-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .subsection-title {
+            font-size: 18px;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .form-group.half {
+            flex: 1 1 calc(50% - 10px);
+            min-width: 250px;
+        }
+        
+        .form-group.third {
+            flex: 1 1 calc(33.333% - 14px);
+            min-width: 200px;
+        }
+        
+        .form-control-file {
+            padding: 10px 0;
+        }
+        
+        .form-text {
+            display: block;
+            margin-top: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }

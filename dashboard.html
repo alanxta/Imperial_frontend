@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Dashboard</h1>
+
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-value">1.245</div>
+                        <div class="stat-label">Produtos em Estoque</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">R$ 8.350</div>
+                        <div class="stat-label">Vendas Hoje</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Clientes Atendidos</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Produtos em Baixa</div>
+                    </div>
+                </div>
+
+                
+                <h2 class="section-title">Produtos em Destaque</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="assets/banner.png" alt="Arroz Flora" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">ARROZ FLORA 5KG</h3>
+                            <p class="card-text">O melhor para seu almoço</p>
+                            <p class="card-price">R$ 22,90</p>
+                            <div class="card-actions">
+                                <button class="btn btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-secondary" onclick="showProductDetails('P001')">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="assets/banner.png" alt="Feijão Kicaldo" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">FEIJÃO KICALDO 1KG</h3>
+                            <p class="card-text">Feijão carioca de qualidade</p>
+                            <p class="card-price">R$ 7,50</p>
+                            <div class="card-actions">
+                                <button class="btn btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-secondary" onclick="showProductDetails('P002')">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="assets/banner.png" alt="Óleo de Soja" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">ÓLEO DE SOJA LIZA</h3>
+                            <p class="card-text">900ml - Qualidade garantida</p>
+                            <p class="card-price">R$ 6,99</p>
+                            <div class="card-actions">
+                                <button class="btn btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-secondary" onclick="showProductDetails('P003')">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="assets/banner.png" alt="Açúcar União" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">AÇÚCAR UNIÃO 1KG</h3>
+                            <p class="card-text">Refinado especial</p>
+                            <p class="card-price">R$ 4,99</p>
+                            <div class="card-actions">
+                                <button class="btn btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-secondary" onclick="showProductDetails('P004')">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <h2 class="section-title">Últimas Vendas</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cliente</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#12345</td>
+                                <td>Maria Silva</td>
+                                <td>04/06/2025 - 09:15</td>
+                                <td>R$ 157,80</td>
+                                <td><span class="status-completed">Concluída</span></td>
+                                <td><button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12345')">Detalhes</button></td>
+                            </tr>
+                            <tr>
+                                <td>#12344</td>
+                                <td>João Pereira</td>
+                                <td>04/06/2025 - 08:42</td>
+                                <td>R$ 89,50</td>
+                                <td><span class="status-completed">Concluída</span></td>
+                                <td><button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12344')">Detalhes</button></td>
+                            </tr>
+                            <tr>
+                                <td>#12343</td>
+                                <td>Ana Souza</td>
+                                <td>04/06/2025 - 08:30</td>
+                                <td>R$ 210,25</td>
+                                <td><span class="status-completed">Concluída</span></td>
+                                <td><button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12343')">Detalhes</button></td>
+                            </tr>
+                            <tr>
+                                <td>#12342</td>
+                                <td>Carlos Oliveira</td>
+                                <td>03/06/2025 - 17:55</td>
+                                <td>R$ 45,90</td>
+                                <td><span class="status-completed">Concluída</span></td>
+                                <td><button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12342')">Detalhes</button></td>
+                            </tr>
+                            <tr>
+                                <td>#12341</td>
+                                <td>Fernanda Lima</td>
+                                <td>03/06/2025 - 16:20</td>
+                                <td>R$ 132,75</td>
+                                <td><span class="status-completed">Concluída</span></td>
+                                <td><button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12341')">Detalhes</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                
+                <h2 class="section-title">Produtos em Baixa no Estoque</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Produto</th>
+                                <th>Categoria</th>
+                                <th>Estoque Atual</th>
+                                <th>Estoque Mínimo</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P001</td>
+                                <td>Leite Integral 1L</td>
+                                <td>Laticínios</td>
+                                <td>5</td>
+                                <td>20</td>
+                                <td><button class="btn btn-danger" onclick="replenishStock('P001')">Repor</button></td>
+                            </tr>
+                            <tr>
+                                <td>P015</td>
+                                <td>Café Pilão 500g</td>
+                                <td>Mercearia</td>
+                                <td>3</td>
+                                <td>15</td>
+                                <td><button class="btn btn-danger" onclick="replenishStock('P015')">Repor</button></td>
+                            </tr>
+                            <tr>
+                                <td>P042</td>
+                                <td>Papel Higiênico Neve</td>
+                                <td>Higiene</td>
+                                <td>8</td>
+                                <td>25</td>
+                                <td><button class="btn btn-danger" onclick="replenishStock('P042')">Repor</button></td>
+                            </tr>
+                            <tr>
+                                <td>P078</td>
+                                <td>Sabão em Pó Omo 1kg</td>
+                                <td>Limpeza</td>
+                                <td>4</td>
+                                <td>12</td>
+                                <td><button class="btn btn-danger" onclick="replenishStock('P078')">Repor</button></td>
+                            </tr>
+                            <tr>
+                                <td>P103</td>
+                                <td>Água Mineral 5L</td>
+                                <td>Bebidas</td>
+                                <td>7</td>
+                                <td>30</td>
+                                <td><button class="btn btn-danger" onclick="replenishStock('P103')">Repor</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+      </div>
+     </div>
+    </div>
+    
+<!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+
+        function showProductDetails(productId) {
+
+            alert('Detalhes do produto ' + productId + ' seriam exibidos aqui.');
+        }
+        
+        function viewSaleDetails(saleId) {
+
+            alert('Detalhes da venda ' + saleId + ' seriam exibidos aqui.');
+        }
+        
+        function replenishStock(productId) {
+
+            alert('Estoque do produto ' + productId + ' seria reposto aqui.');
+        }
+    </script>
+     
+
+
+
+
+</body>
+
+</html>

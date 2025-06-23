@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+    <link rel="stylesheet" href="view/css/financeiro.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Financeiro</h1>
+
+                <div class="financial-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon income">💰</div>
+                        <div class="summary-details">
+                            <h3>Receita Total (Mês)</h3>
+                            <p class="summary-value">R$ 125.450,00</p>
+                            <p class="summary-change positive">+12,5% em relação ao mês anterior</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon expense">💸</div>
+                        <div class="summary-details">
+                            <h3>Despesas Totais (Mês)</h3>
+                            <p class="summary-value">R$ 87.320,00</p>
+                            <p class="summary-change negative">+5,2% em relação ao mês anterior</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon profit">📈</div>
+                        <div class="summary-details">
+                            <h3>Lucro Líquido (Mês)</h3>
+                            <p class="summary-value">R$ 38.130,00</p>
+                            <p class="summary-change positive">+32,8% em relação ao mês anterior</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon pending">⏳</div>
+                        <div class="summary-details">
+                            <h3>Contas a Receber</h3>
+                            <p class="summary-value">R$ 15.780,00</p>
+                            <p class="summary-change">12 pendências</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="financial-tabs">
+                    <div class="tab-header">
+                        <button class="tab-button active" onclick="openTab('vendas')">Vendas</button>
+                        <button class="tab-button" onclick="openTab('contas-receber')">Contas a Receber</button>
+                        <button class="tab-button" onclick="openTab('contas-pagar')">Contas a Pagar</button>
+                        <button class="tab-button" onclick="openTab('fluxo-caixa')">Fluxo de Caixa</button>
+                        <button class="tab-button" onclick="openTab('relatorios')">Relatórios</button>
+                    </div>
+
+
+                    <div class="tab-content">
+
+                        <div id="vendas" class="tab-pane active">
+                            <div class="tab-actions">
+                                <button class="btn btn-primary" onclick="showNewSaleForm()">Nova Venda</button>
+                                <div class="date-filter">
+                                    <label for="date-range">Período:</label>
+                                    <select id="date-range" class="form-control">
+                                        <option value="today">Hoje</option>
+                                        <option value="yesterday">Ontem</option>
+                                        <option value="week" selected>Esta Semana</option>
+                                        <option value="month">Este Mês</option>
+                                        <option value="custom">Personalizado</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="sales-chart">
+                                <h3>Vendas da Semana</h3>
+                                <div class="chart-container">
+                                    <div class="chart-bar" style="height: 60px;" title="Segunda: R$ 3.450,00"></div>
+                                    <div class="chart-bar" style="height: 80px;" title="Terça: R$ 4.120,00"></div>
+                                    <div class="chart-bar" style="height: 65px;" title="Quarta: R$ 3.780,00"></div>
+                                    <div class="chart-bar" style="height: 90px;" title="Quinta: R$ 4.350,00"></div>
+                                    <div class="chart-bar" style="height: 120px;" title="Sexta: R$ 5.890,00"></div>
+                                    <div class="chart-bar" style="height: 150px;" title="Sábado: R$ 6.950,00"></div>
+                                    <div class="chart-bar" style="height: 70px;" title="Domingo: R$ 3.950,00"></div>
+                                </div>
+                                <div class="chart-labels">
+                                    <span>Seg</span>
+                                    <span>Ter</span>
+                                    <span>Qua</span>
+                                    <span>Qui</span>
+                                    <span>Sex</span>
+                                    <span>Sáb</span>
+                                    <span>Dom</span>
+                                </div>
+                            </div>
+
+                            <h3>Últimas Vendas</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Cliente</th>
+                                            <th>Data</th>
+                                            <th>Valor</th>
+                                            <th>Forma de Pagamento</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#12345</td>
+                                            <td>Maria Silva</td>
+                                            <td>04/06/2025 - 09:15</td>
+                                            <td>R$ 157,80</td>
+                                            <td>Cartão de Crédito</td>
+                                            <td><span class="status-completed">Concluída</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12345')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="cancelSale('12345')">Cancelar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12344</td>
+                                            <td>João Pereira</td>
+                                            <td>04/06/2025 - 08:42</td>
+                                            <td>R$ 89,50</td>
+                                            <td>Dinheiro</td>
+                                            <td><span class="status-completed">Concluída</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12344')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="cancelSale('12344')">Cancelar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12343</td>
+                                            <td>Ana Souza</td>
+                                            <td>04/06/2025 - 08:30</td>
+                                            <td>R$ 210,25</td>
+                                            <td>Cartão de Débito</td>
+                                            <td><span class="status-completed">Concluída</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12343')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="cancelSale('12343')">Cancelar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12342</td>
+                                            <td>Carlos Oliveira</td>
+                                            <td>03/06/2025 - 17:55</td>
+                                            <td>R$ 45,90</td>
+                                            <td>Pix</td>
+                                            <td><span class="status-completed">Concluída</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12342')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="cancelSale('12342')">Cancelar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#12341</td>
+                                            <td>Fernanda Lima</td>
+                                            <td>03/06/2025 - 16:20</td>
+                                            <td>R$ 132,75</td>
+                                            <td>Cartão de Crédito</td>
+                                            <td><span class="status-completed">Concluída</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewSaleDetails('12341')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="cancelSale('12341')">Cancelar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="pagination">
+                                <button class="btn btn-secondary" disabled>Anterior</button>
+                                <span class="page-info">Página 1 de 10</span>
+                                <button class="btn btn-secondary">Próxima</button>
+                            </div>
+                        </div>
+
+
+                        <div id="contas-receber" class="tab-pane">
+                            <div class="tab-actions">
+                                <button class="btn btn-primary" onclick="showNewReceivableForm()">Nova Conta a Receber</button>
+                                <div class="status-filter">
+                                    <label for="receivable-status">Status:</label>
+                                    <select id="receivable-status" class="form-control">
+                                        <option value="all">Todos</option>
+                                        <option value="pending" selected>Pendentes</option>
+                                        <option value="paid">Pagas</option>
+                                        <option value="overdue">Vencidas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h3>Contas a Receber</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Cliente</th>
+                                            <th>Descrição</th>
+                                            <th>Valor</th>
+                                            <th>Vencimento</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CR-001</td>
+                                            <td>Restaurante Sabor Caseiro</td>
+                                            <td>Fornecimento mensal</td>
+                                            <td>R$ 3.450,00</td>
+                                            <td>10/06/2025</td>
+                                            <td><span class="status-pending">Pendente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="markAsPaid('CR-001')">Receber</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReceivableDetails('CR-001')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CR-002</td>
+                                            <td>Padaria Pão Dourado</td>
+                                            <td>Fornecimento semanal</td>
+                                            <td>R$ 1.250,00</td>
+                                            <td>08/06/2025</td>
+                                            <td><span class="status-pending">Pendente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="markAsPaid('CR-002')">Receber</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReceivableDetails('CR-002')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CR-003</td>
+                                            <td>Lanchonete Bom Sabor</td>
+                                            <td>Fornecimento quinzenal</td>
+                                            <td>R$ 2.780,00</td>
+                                            <td>15/06/2025</td>
+                                            <td><span class="status-pending">Pendente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="markAsPaid('CR-003')">Receber</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReceivableDetails('CR-003')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CR-004</td>
+                                            <td>Hotel Central</td>
+                                            <td>Fornecimento mensal</td>
+                                            <td>R$ 5.120,00</td>
+                                            <td>01/06/2025</td>
+                                            <td><span class="status-canceled">Vencida</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="markAsPaid('CR-004')">Receber</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReceivableDetails('CR-004')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CR-005</td>
+                                            <td>Escola Novo Saber</td>
+                                            <td>Fornecimento mensal</td>
+                                            <td>R$ 3.180,00</td>
+                                            <td>20/05/2025</td>
+                                            <td><span class="status-completed">Paga</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReceivableDetails('CR-005')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="deleteReceivable('CR-005')">Excluir</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div id="contas-pagar" class="tab-pane">
+                            <div class="tab-actions">
+                                <button class="btn btn-primary" onclick="showNewPayableForm()">Nova Conta a Pagar</button>
+                                <div class="status-filter">
+                                    <label for="payable-status">Status:</label>
+                                    <select id="payable-status" class="form-control">
+                                        <option value="all">Todos</option>
+                                        <option value="pending" selected>Pendentes</option>
+                                        <option value="paid">Pagas</option>
+                                        <option value="overdue">Vencidas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h3>Contas a Pagar</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Fornecedor</th>
+                                            <th>Descrição</th>
+                                            <th>Valor</th>
+                                            <th>Vencimento</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CP-001</td>
+                                            <td>Distribuidora Alimentos ABC</td>
+                                            <td>Fornecimento mensal</td>
+                                            <td>R$ 12.450,00</td>
+                                            <td>15/06/2025</td>
+                                            <td><span class="status-pending">Pendente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="payBill('CP-001')">Pagar</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewPayableDetails('CP-001')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CP-002</td>
+                                            <td>Laticínios Boa Vaca</td>
+                                            <td>Fornecimento semanal</td>
+                                            <td>R$ 3.250,00</td>
+                                            <td>10/06/2025</td>
+                                            <td><span class="status-pending">Pendente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="payBill('CP-002')">Pagar</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewPayableDetails('CP-002')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CP-003</td>
+                                            <td>Hortifruti Natureza</td>
+                                            <td>Fornecimento semanal</td>
+                                            <td>R$ 4.780,00</td>
+                                            <td>08/06/2025</td>
+                                            <td><span class="status-pending">Pendente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="payBill('CP-003')">Pagar</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewPayableDetails('CP-003')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CP-004</td>
+                                            <td>Bebidas Refrescantes</td>
+                                            <td>Fornecimento quinzenal</td>
+                                            <td>R$ 6.120,00</td>
+                                            <td>01/06/2025</td>
+                                            <td><span class="status-canceled">Vencida</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="payBill('CP-004')">Pagar</button>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewPayableDetails('CP-004')">Detalhes</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CP-005</td>
+                                            <td>Produtos de Limpeza Brilho</td>
+                                            <td>Fornecimento mensal</td>
+                                            <td>R$ 2.180,00</td>
+                                            <td>20/05/2025</td>
+                                            <td><span class="status-completed">Paga</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewPayableDetails('CP-005')">Detalhes</button>
+                                                <button class="btn btn-sm btn-danger" onclick="deletePayable('CP-005')">Excluir</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div id="fluxo-caixa" class="tab-pane">
+                            <div class="tab-actions">
+                                <div class="date-filter">
+                                    <label for="cash-flow-period">Período:</label>
+                                    <select id="cash-flow-period" class="form-control">
+                                        <option value="day">Diário</option>
+                                        <option value="week">Semanal</option>
+                                        <option value="month" selected>Mensal</option>
+                                        <option value="year">Anual</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary">Exportar Relatório</button>
+                            </div>
+
+                            <div class="cash-flow-summary">
+                                <div class="summary-box income">
+                                    <h3>Entradas</h3>
+                                    <p class="value">R$ 125.450,00</p>
+                                </div>
+                                <div class="summary-box expense">
+                                    <h3>Saídas</h3>
+                                    <p class="value">R$ 87.320,00</p>
+                                </div>
+                                <div class="summary-box balance">
+                                    <h3>Saldo</h3>
+                                    <p class="value">R$ 38.130,00</p>
+                                </div>
+                            </div>
+
+                            <div class="cash-flow-chart">
+                                <h3>Fluxo de Caixa - Junho/2025</h3>
+                                <div class="chart-container">
+
+                                    <div class="chart-area">
+                                        <div class="chart-line income"></div>
+                                        <div class="chart-line expense"></div>
+                                        <div class="chart-line balance"></div>
+                                    </div>
+                                    <div class="chart-legend">
+                                        <div class="legend-item">
+                                            <span class="legend-color income"></span>
+                                            <span class="legend-label">Entradas</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color expense"></span>
+                                            <span class="legend-label">Saídas</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color balance"></span>
+                                            <span class="legend-label">Saldo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Movimentações do Mês</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Data</th>
+                                            <th>Descrição</th>
+                                            <th>Tipo</th>
+                                            <th>Categoria</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>01/06/2025</td>
+                                            <td>Vendas do dia</td>
+                                            <td><span class="badge badge-success">Entrada</span></td>
+                                            <td>Vendas</td>
+                                            <td class="value-positive">R$ 4.350,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01/06/2025</td>
+                                            <td>Pagamento fornecedor Bebidas Refrescantes</td>
+                                            <td><span class="badge badge-danger">Saída</span></td>
+                                            <td>Fornecedores</td>
+                                            <td class="value-negative">R$ 6.120,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02/06/2025</td>
+                                            <td>Vendas do dia</td>
+                                            <td><span class="badge badge-success">Entrada</span></td>
+                                            <td>Vendas</td>
+                                            <td class="value-positive">R$ 3.890,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02/06/2025</td>
+                                            <td>Pagamento de energia elétrica</td>
+                                            <td><span class="badge badge-danger">Saída</span></td>
+                                            <td>Despesas Fixas</td>
+                                            <td class="value-negative">R$ 1.450,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>03/06/2025</td>
+                                            <td>Vendas do dia</td>
+                                            <td><span class="badge badge-success">Entrada</span></td>
+                                            <td>Vendas</td>
+                                            <td class="value-positive">R$ 4.120,00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="relatorios" class="tab-pane">
+                            <div class="reports-grid">
+                                <div class="report-card">
+                                    <div class="report-icon">📊</div>
+                                    <h3>Relatório de Vendas</h3>
+                                    <p>Análise detalhada das vendas por período, produto e cliente.</p>
+                                    <div class="report-actions">
+                                        <button class="btn btn-primary" onclick="generateReport('sales')">Gerar</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-icon">📈</div>
+                                    <h3>Relatório Financeiro</h3>
+                                    <p>Demonstrativo de resultados, balanço e fluxo de caixa.</p>
+                                    <div class="report-actions">
+                                        <button class="btn btn-primary" onclick="generateReport('financial')">Gerar</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-icon">📦</div>
+                                    <h3>Relatório de Estoque</h3>
+                                    <p>Análise de produtos, giro de estoque e necessidade de reposição.</p>
+                                    <div class="report-actions">
+                                        <button class="btn btn-primary" onclick="generateReport('inventory')">Gerar</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-icon">👥</div>
+                                    <h3>Relatório de Clientes</h3>
+                                    <p>Análise de clientes, frequência de compras e ticket médio.</p>
+                                    <div class="report-actions">
+                                        <button class="btn btn-primary" onclick="generateReport('customers')">Gerar</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-icon">🏆</div>
+                                    <h3>Produtos Mais Vendidos</h3>
+                                    <p>Ranking dos produtos com melhor desempenho de vendas.</p>
+                                    <div class="report-actions">
+                                        <button class="btn btn-primary" onclick="generateReport('top-products')">Gerar</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-icon">💰</div>
+                                    <h3>Margem de Lucro</h3>
+                                    <p>Análise da margem de lucro por produto e categoria.</p>
+                                    <div class="report-actions">
+                                        <button class="btn btn-primary" onclick="generateReport('profit-margin')">Gerar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Relatórios Recentes</h3>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Tipo</th>
+                                            <th>Data de Geração</th>
+                                            <th>Gerado por</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Vendas_Maio_2025.pdf</td>
+                                            <td>Relatório de Vendas</td>
+                                            <td>01/06/2025</td>
+                                            <td>Admin</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReport('Vendas_Maio_2025.pdf')">Visualizar</button>
+                                                <button class="btn btn-sm btn-primary" onclick="downloadReport('Vendas_Maio_2025.pdf')">Download</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Financeiro_Trimestral_Q2_2025.pdf</td>
+                                            <td>Relatório Financeiro</td>
+                                            <td>30/05/2025</td>
+                                            <td>Admin</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReport('Financeiro_Trimestral_Q2_2025.pdf')">Visualizar</button>
+                                                <button class="btn btn-sm btn-primary" onclick="downloadReport('Financeiro_Trimestral_Q2_2025.pdf')">Download</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Estoque_Maio_2025.pdf</td>
+                                            <td>Relatório de Estoque</td>
+                                            <td>29/05/2025</td>
+                                            <td>Admin</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-secondary" onclick="viewReport('Estoque_Maio_2025.pdf')">Visualizar</button>
+                                                <button class="btn btn-sm btn-primary" onclick="downloadReport('Estoque_Maio_2025.pdf')">Download</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+
+        function openTab(tabId) {
+
+            document.querySelectorAll('.tab-pane').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+
+            document.getElementById(tabId).classList.add('active');
+            
+
+            document.querySelector(`.tab-button[onclick="openTab('${tabId}')"]`).classList.add('active');
+        }
+        
+        function viewSaleDetails(saleId) {
+
+            alert('Detalhes da venda ' + saleId + ' seriam exibidos aqui.');
+        }
+        
+        function cancelSale(saleId) {
+
+            if (confirm('Tem certeza que deseja cancelar a venda ' + saleId + '?')) {
+                alert('Venda ' + saleId + ' cancelada com sucesso!');
+            }
+        }
+        
+        function showNewSaleForm() {
+
+            alert('Formulário de nova venda seria exibido aqui.');
+        }
+        
+        function showNewReceivableForm() {
+
+            alert('Formulário de nova conta a receber seria exibido aqui.');
+        }
+        
+        function markAsPaid(receivableId) {
+
+            if (confirm('Confirmar recebimento da conta ' + receivableId + '?')) {
+                alert('Conta ' + receivableId + ' marcada como recebida com sucesso!');
+            }
+        }
+        
+        function viewReceivableDetails(receivableId) {
+
+            alert('Detalhes da conta a receber ' + receivableId + ' seriam exibidos aqui.');
+        }
+        
+        function deleteReceivable(receivableId) {
+
+            if (confirm('Tem certeza que deseja excluir a conta a receber ' + receivableId + '?')) {
+                alert('Conta a receber ' + receivableId + ' excluída com sucesso!');
+            }
+        }
+        
+        function showNewPayableForm() {
+
+            alert('Formulário de nova conta a pagar seria exibido aqui.');
+        }
+        
+        function payBill(payableId) {
+
+            if (confirm('Confirmar pagamento da conta ' + payableId + '?')) {
+                alert('Conta ' + payableId + ' paga com sucesso!');
+            }
+        }
+        
+        function viewPayableDetails(payableId) {
+
+            alert('Detalhes da conta a pagar ' + payableId + ' seriam exibidos aqui.');
+        }
+        
+        function deletePayable(payableId) {
+
+            if (confirm('Tem certeza que deseja excluir a conta a pagar ' + payableId + '?')) {
+                alert('Conta a pagar ' + payableId + ' excluída com sucesso!');
+            }
+        }
+        
+        function generateReport(reportType) {
+
+            alert('Relatório do tipo ' + reportType + ' seria gerado aqui.');
+        }
+        
+        function viewReport(reportName) {
+
+            alert('Relatório ' + reportName + ' seria visualizado aqui.');
+        }
+        
+        function downloadReport(reportName) {
+
+            alert('Download do relatório ' + reportName + ' seria iniciado aqui.');
+        }
+    </script>
+                
+    
+
+    
+</body>
+
+</html>

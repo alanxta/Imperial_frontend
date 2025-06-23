@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/interacao.css">
+    <link rel="stylesheet" href="view/css/catalogo.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+       
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Catálogo de Produtos</h1>
+
+               
+                <div class="filters-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar produtos..." class="form-control">
+                        <button class="btn btn-primary">Buscar</button>
+                    </div>
+
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <label for="category-filter">Categoria:</label>
+                            <select id="category-filter" class="form-control">
+                                <option value="">Todas</option>
+                                <option value="mercearia">Mercearia</option>
+                                <option value="hortifruti">Hortifruti</option>
+                                <option value="carnes">Carnes</option>
+                                <option value="bebidas">Bebidas</option>
+                                <option value="laticinios">Laticínios</option>
+                                <option value="limpeza">Limpeza</option>
+                                <option value="higiene">Higiene</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="sort-filter">Ordenar por:</label>
+                            <select id="sort-filter" class="form-control">
+                                <option value="name-asc">Nome (A-Z)</option>
+                                <option value="name-desc">Nome (Z-A)</option>
+                                <option value="price-asc">Preço (menor-maior)</option>
+                                <option value="price-desc">Preço (maior-menor)</option>
+                                <option value="stock-asc">Estoque (menor-maior)</option>
+                                <option value="stock-desc">Estoque (maior-menor)</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="stock-filter">Estoque:</label>
+                            <select id="stock-filter" class="form-control">
+                                <option value="">Todos</option>
+                                <option value="in-stock">Em estoque</option>
+                                <option value="low-stock">Estoque baixo</option>
+                                <option value="out-of-stock">Sem estoque</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="window.location.href='cadastros.html'">Novo Produto</button>
+                        <button class="btn btn-secondary">Exportar Lista</button>
+                    </div>
+                </div>
+
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Arroz Flora">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Arroz Flora 5kg</h3>
+                            <p class="product-category">Categoria: Mercearia</p>
+                            <p class="product-price">R$ 22,90</p>
+                            <p class="product-stock">Estoque: 45 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P001')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P001')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Feijão Kicaldo">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Feijão Kicaldo 1kg</h3>
+                            <p class="product-category">Categoria: Mercearia</p>
+                            <p class="product-price">R$ 7,50</p>
+                            <p class="product-stock">Estoque: 32 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P002')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P002')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Óleo de Soja Liza">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Óleo de Soja Liza 900ml</h3>
+                            <p class="product-category">Categoria: Mercearia</p>
+                            <p class="product-price">R$ 6,99</p>
+                            <p class="product-stock">Estoque: 28 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P003')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P003')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Açúcar União">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Açúcar União 1kg</h3>
+                            <p class="product-category">Categoria: Mercearia</p>
+                            <p class="product-price">R$ 4,99</p>
+                            <p class="product-stock">Estoque: 40 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P004')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P004')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Leite Integral">
+                            <div class="product-badge low-stock">Estoque Baixo</div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Leite Integral 1L</h3>
+                            <p class="product-category">Categoria: Laticínios</p>
+                            <p class="product-price">R$ 5,49</p>
+                            <p class="product-stock stock-low">Estoque: 5 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P005')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P005')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Café Pilão">
+                            <div class="product-badge low-stock">Estoque Baixo</div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Café Pilão 500g</h3>
+                            <p class="product-category">Categoria: Mercearia</p>
+                            <p class="product-price">R$ 15,90</p>
+                            <p class="product-stock stock-low">Estoque: 3 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P006')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P006')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Papel Higiênico Neve">
+                            <div class="product-badge low-stock">Estoque Baixo</div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Papel Higiênico Neve 12un</h3>
+                            <p class="product-category">Categoria: Higiene</p>
+                            <p class="product-price">R$ 18,90</p>
+                            <p class="product-stock stock-low">Estoque: 8 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P007')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P007')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/banner.png" alt="Sabão em Pó Omo">
+                            <div class="product-badge low-stock">Estoque Baixo</div>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Sabão em Pó Omo 1kg</h3>
+                            <p class="product-category">Categoria: Limpeza</p>
+                            <p class="product-price">R$ 12,90</p>
+                            <p class="product-stock stock-low">Estoque: 4 unidades</p>
+                            <div class="product-actions">
+                                <button class="btn btn-sm btn-primary" onclick="window.location.href='cadastros.html'">Editar</button>
+                                <button class="btn btn-sm btn-secondary" onclick="viewProductDetails('P008')">Detalhes</button>
+                                <button class="btn btn-sm btn-danger" onclick="confirmDeleteProduct('P008')">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="pagination">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="page-info">Página 1 de 5</span>
+                    <button class="btn btn-secondary">Próxima</button>
+                </div>
+            </div>
+
+            
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+
+        function viewProductDetails(productId) {
+ 
+            alert('Detalhes do produto ' + productId + ' seriam exibidos aqui.');
+        }
+        
+        function confirmDeleteProduct(productId) {
+
+            if (confirm('Tem certeza que deseja excluir o produto ' + productId + '?')) {
+                alert('Produto ' + productId + ' excluído com sucesso!');
+            }
+        }
+    </script>
+
+                
+    
+
+    
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="view/css/boot.css">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/css/cadastroproduto.css">
+
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navBar">
+            <img class="logo" src="assets/Imperial-Logo.png" alt="Logo ">
+
+            <div class="iconListing">
+                <a href="ajuda.html">
+                    <img src="assets/ajuda.png" alt="ajuda" class="header-img">
+                </a>
+
+                <a href="notificacoes.html">
+                    <img src="assets/notificação.png" alt="notificacao" class="header-img">
+                </a>
+
+                <a href="usuario.html">
+                    <img src="assets/user.png" alt="Icon de user" class="test" class="header-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="main">
+        <div class="sidebar">
+
+            <a href="cadastros.html" class="cadastros"><div class="side-content">
+              <img src="assets/cadastro.png" alt="cadastro"> Cadastros 
+
+            </div></a>
+
+            <a href="dashboard.html"> 
+                <div class="side-content">
+                    <img src="assets/Dashboard.png" alt="dashboard"> Dashboard 
+ 
+             </div></a>
+
+             <a href="catalogo.html"> <div class="side-content">
+                <img src="assets/catalogo.png" alt="catalo"> Catálogo 
+ 
+             </div></a>
+
+             <a href="financeiro.html"><div class="side-content">
+                <img src="assets/financeiro.png" alt="financeiro"> Financeiro 
+ 
+             </div></a>
+
+             <a href="configuracao.html" class="config"><div class="side-content-config">
+                <img src="assets/configuração.png" alt="configuracao"> Configuração 
+ 
+             </div></a>
+
+        </div>
+
+        <div class="content-area">
+            <div class="content-container">
+                <h1 class="page-title">Cadastros</h1>
+
+               
+                <div class="cadastro-tabs">
+                    <button class="cadastro-tab active">Produtos</button>
+                    <button class="cadastro-tab">Fornecedores</button>
+                    <button class="cadastro-tab">Clientes</button>
+                    <button class="cadastro-tab">Funcionários</button>
+                    <button class="cadastro-tab">Categorias</button>
+                </div>
+
+                
+                <div class="cadastro-section">
+                    <h2 class="section-title">Cadastro de Produto</h2>
+                    
+                    <form class="cadastro-form">
+                        
+                        <div class="form-section">
+                            <h3 class="subsection-title">Dados Básicos</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="product-code">Código</label>
+                                    <input type="text" id="product-code" class="form-control" placeholder="Ex: P0001">
+                                </div>
+                                
+                                <div class="form-group half">
+                                    <label for="product-barcode">Código de Barras</label>
+                                    <input type="text" id="product-barcode" class="form-control" placeholder="Ex: 7891234567890">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-name">Nome do Produto*</label>
+                                <input type="text" id="product-name" class="form-control" placeholder="Ex: Arroz Flora 5kg" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-description">Descrição</label>
+                                <textarea id="product-description" class="form-control" rows="3" placeholder="Descreva o produto..."></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="product-category">Categoria*</label>
+                                    <select id="product-category" class="form-control" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="mercearia">Mercearia</option>
+                                        <option value="hortifruti">Hortifruti</option>
+                                        <option value="carnes">Carnes e Frios</option>
+                                        <option value="laticinios">Laticínios</option>
+                                        <option value="bebidas">Bebidas</option>
+                                        <option value="limpeza">Limpeza</option>
+                                        <option value="higiene">Higiene</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group half">
+                                    <label for="product-brand">Marca</label>
+                                    <input type="text" id="product-brand" class="form-control" placeholder="Ex: Flora">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-section">
+                            <h3 class="subsection-title">Preços e Estoque</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group third">
+                                    <label for="product-cost">Preço de Custo (R$)*</label>
+                                    <input type="number" id="product-cost" class="form-control" step="0.01" min="0" placeholder="0,00" required>
+                                </div>
+                                
+                                <div class="form-group third">
+                                    <label for="product-price">Preço de Venda (R$)*</label>
+                                    <input type="number" id="product-price" class="form-control" step="0.01" min="0" placeholder="0,00" required>
+                                </div>
+                                
+                                <div class="form-group third">
+                                    <label for="product-promo">Preço Promocional (R$)</label>
+                                    <input type="number" id="product-promo" class="form-control" step="0.01" min="0" placeholder="0,00">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group third">
+                                    <label for="product-stock">Estoque Atual*</label>
+                                    <input type="number" id="product-stock" class="form-control" min="0" placeholder="0" required>
+                                </div>
+                                
+                                <div class="form-group third">
+                                    <label for="product-min-stock">Estoque Mínimo</label>
+                                    <input type="number" id="product-min-stock" class="form-control" min="0" placeholder="0">
+                                </div>
+                                
+                                <div class="form-group third">
+                                    <label for="product-unit">Unidade*</label>
+                                    <select id="product-unit" class="form-control" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="un">Unidade (un)</option>
+                                        <option value="kg">Quilograma (kg)</option>
+                                        <option value="g">Grama (g)</option>
+                                        <option value="l">Litro (l)</option>
+                                        <option value="ml">Mililitro (ml)</option>
+                                        <option value="pct">Pacote (pct)</option>
+                                        <option value="cx">Caixa (cx)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-section">
+                            <h3 class="subsection-title">Fornecedor e Imagem</h3>
+                            
+                            <div class="form-group">
+                                <label for="product-supplier">Fornecedor</label>
+                                <select id="product-supplier" class="form-control">
+                                    <option value="">Selecione...</option>
+                                    <option value="1">Distribuidora Alimentos Sul</option>
+                                    <option value="2">Hortifruti Express</option>
+                                    <option value="3">Laticínios Bom Gosto</option>
+                                    <option value="4">Bebidas & Cia</option>
+                                    <option value="5">Limpeza Total</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-image">Imagem do Produto</label>
+                                <input type="file" id="product-image" class="form-control-file">
+                                <small class="form-text">Formatos aceitos: JPG, PNG. Tamanho máximo: 2MB</small>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Salvar Produto</button>
+                            <button type="reset" class="btn btn-secondary">Limpar Campos</button>
+                            <button type="button" class="btn btn-danger">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            
+            <footer class="footer">
+                <p>&copy; 2025 Imperial Supermercado. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+                
+    </div>
+
+    <style>
+ 
+    </style> 
+
+
+    <script src="js/script.js"></script>
+
+
+
+
+
+</body>
+
+</html>
